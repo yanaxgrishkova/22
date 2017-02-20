@@ -7,16 +7,16 @@ private:
 	float real;
 	float imaginary;
 public:
-	Complex() : real(0), imaginary(0) //конструктор без параметров
-	{	}
+	Complex() : real(0), imaginary(0)
+	{}
 
-	Complex(float rl, float img) : real(rl), imaginary(img) //конструктор с параметрами
-	{	}
+	Complex(float rl, float img) : real(rl), imaginary(img) 
+	{}
 
-	~Complex() //деструктор
-	{	}
+	~Complex()
+	{}
 
-	void getComplex()//ввод чисел
+	void getComplex()
 	{
 		cout << "Please, enter real part of complex number:" << endl;
 		cin >> real;
@@ -66,10 +66,10 @@ public:
 		c2.getComplex();
 		c3.addComplex(c1, c2, c3);
 		c3.subComplex(c1, c2, c3);
-		cout << "\nPlease enter a number for multiplying: " << endl;
+		cout << "\n Please enter a number for multiplying:" << endl;
 		cin >> mpl;
 		c3.multiplyComplex(c1, c3, mpl);
-		cout << "\nPlease enter a number for division:" << endl;
+		cout << "\n Please enter a number for division:" << endl;
 		cin >> div;
 		c3.divComplex(c1, c3, div);
 		system("pause");
