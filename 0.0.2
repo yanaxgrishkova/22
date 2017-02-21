@@ -16,7 +16,7 @@ public:
 	~Complex()
 	{}
 
-	void getComplex()
+	void printComplex()
 	{
 		cout << "Please, enter the real part of the complex number:" << endl;
 		cin >> real;
@@ -62,8 +62,8 @@ public:
 	{
 		Complex c1, c2, c3;
 		int mpl, div;
-		c1.getComplex();
-		c2.getComplex();
+		c1.printComplex();
+		c2.printComplex();
 		c3.addComplex(c1, c2, c3);
 		c3.subComplex(c1, c2, c3);
 		cout << "\n Please enter a number for multiplying:" << endl;
