@@ -33,7 +33,7 @@ void Complex::getComplex()
 	cout << "Please, enter the imaginary part of a complex number:" << endl;
 	cin >> imaginary;
 	cout << endl;
-};
+}
 
 void Complex::printComplex()
 {
@@ -42,21 +42,21 @@ void Complex::printComplex()
 		cout << real << imaginary << "i" << endl;
 	} else
 	cout << real << "+" << imaginary << "i" << endl;
-};
+}
 
 Complex Complex::addComplex(Complex c1, Complex c2, Complex result) const
 {
 	result.real = c1.real + c2.real;
 	result.imaginary = c1.imaginary + c2.imaginary;
 	return result;
-};
+}
 
 Complex Complex::subComplex(Complex c1, Complex c2, Complex result) const
 {
 	result.real = c1.real - c2.real;
 	result.imaginary = c1.imaginary - c2.imaginary;
 	return result;
-};
+}
 
 Complex Complex::multiplyComplex(Complex c1, Complex result, int mpl) const
 {
