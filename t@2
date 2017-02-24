@@ -10,68 +10,86 @@ public:
 	Complex() : real(0), imaginary(0)
 	{}
 
-	Complex(float rl, float img) : real(rl), imaginary(img) 
+	Complex(float rl, float img) : real(rl), imaginary(img)
 	{}
 
-	~Complex()
-	{}
+	void getComplex();
 
-	void printComplex()
-	{
-		cout << "Please, enter the real part of the complex number:" << endl;
-		cin >> real;
-		cout << "Please, enter the imaginary part of the complex number:" << endl;
-		cin >> imaginary;
-		cout << endl;
-	}
+	void printComplex();
+	
+	Complex addComplex(Complex c1, Complex c2, Complex result) const;
 
-	void addComplex(Complex c1, Complex c2, Complex c3)
-	{
-		c3.real = c1.real + c2.real;
-		c3.imaginary = c1.imaginary + c2.imaginary;
-		cout << "Result (add):\t" << c3.real << "+" << c3.imaginary << "i" << endl;
-	}
+	Complex subComplex(Complex c1, Complex c2, Complex result) const;
 
-	void subComplex(Complex c1, Complex c2, Complex c3)
-	{
-		c3.real = c1.real - c2.real;
-		c3.imaginary = c1.imaginary - c2.imaginary;
-		if (c1.imaginary > c2.imaginary)
-		{
-			cout << "Result (sub):\t" << c3.real << "+" << c3.imaginary << "i" << endl;
-		}
-		else cout << "Result (sub):\t" << c3.real << c3.imaginary << "i" << endl;
-	}
+	Complex multiplyComplex(Complex c1, Complex result, int mpl) const;
 
-	void multiplyComplex(Complex c1, Complex c3, int mpl)
-	{
-		c3.real = c1.real*mpl;
-		c3.imaginary = c1.imaginary*mpl;
-		cout << "Result (multiply):\t" << c3.real << "+" << c3.imaginary << "i" << endl;
-	}
-
-	void divComplex(Complex c1, Complex c3, int div)
-	{
-		c3.real = c1.real / div;
-		c3.imaginary = c1.imaginary / div;
-		cout << "Result (div):\t" << c3.real << "+" << c3.imaginary << "i" << endl;
-	}
+	Complex divComplex(Complex c1, Complex result, int div) const;
 };
 
-	int main()
+void Complex::getComplex()
+{
+	cout << "Please, enter the real part of the complex number:" << endl;
+	cin >> real;
+	cout << "Please, enter the imaginary part of the complex number:" << endl;
+	cin >> imaginary;
+	cout << endl;
+};
+
+void Complex::printComplex()
+{
+	if (imaginary < 0)
 	{
-		Complex c1, c2, c3;
-		int mpl, div;
-		c1.printComplex();
-		c2.printComplex();
-		c3.addComplex(c1, c2, c3);
-		c3.subComplex(c1, c2, c3);
-		cout << "\n Please enter a number for multiplying:" << endl;
-		cin >> mpl;
-		c3.multiplyComplex(c1, c3, mpl);
-		cout << "\n Please enter a number for dividing:" << endl;
-		cin >> div;
-		c3.divComplex(c1, c3, div);
-		system("pause");
-		return 0;
-	}
+		cout << real << imaginary << "i" << endl;
+	} else
+	cout << real << "+" << imaginary << "i" << endl;
+};
+
+Complex Complex::addComplex(Complex c1, Complex c2, Complex result) const
+{
+	result.real = c1.real + c2.real;
+	result.imaginary = c1.imaginary + c2.imaginary;
+	return result;
+};
+
+Complex Complex::subComplex(Complex c1, Complex c2, Complex result) const
+{
+	result.real = c1.real - c2.real;
+	result.imaginary = c1.imaginary - c2.imaginary;
+	return result;
+};
+
+Complex Complex::multiplyComplex(Complex c1, Complex result, int mpl) const
+{
+	result.real = c1.real*mpl;
+	result.imaginary = c1.imaginary*mpl;
+	return result;
+}
+
+Complex Complex::divComplex(Complex c1, Complex result, int div) const
+{
+	result.real = c1.real / div;
+	result.imaginary = c1.imaginary / div;
+	return result;
+}
+
+int main()
+{
+	Complex c1, c2, result;
+	int mpl, div;
+	c1.getComplex();
+	c2.getComplex();
+	result = c1.addComplex(c1, c2, result);
+	cout << "Result (add): "; result.printComplex();
+	result = c1.subComplex(c1, c2, result);
+	cout << "Result (sub): ";  result.printComplex();
+	cout << "\nPlease enter a number for multiplying:" << endl;
+	cin >> mpl;
+	result = c1.multiplyComplex(c1, result, mpl);
+	cout << "Result (multiply): ";	result.printComplex();
+	cout << "\nPlease enter a number for dividing:" << endl;
+	cin >> div;
+	result = c1.divComplex(c1, result, div);
+	cout << "Result (div): ";	result.printComplex();
+	system("pause");
+	return 0;
+}
