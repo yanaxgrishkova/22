@@ -28,9 +28,9 @@ public:
 
 void Complex::getComplex()
 {
-	cout << "Please, enter the real part of the complex number:" << endl;
+	cout << "Please, enter the real part of a complex number:" << endl;
 	cin >> real;
-	cout << "Please, enter the imaginary part of the complex number:" << endl;
+	cout << "Please, enter the imaginary part of a complex number:" << endl;
 	cin >> imaginary;
 	cout << endl;
 };
@@ -82,14 +82,14 @@ int main()
 	cout << "Result (add): "; result.printComplex();
 	result = c1.subComplex(c1, c2, result);
 	cout << "Result (sub): ";  result.printComplex();
-	cout << "\nPlease enter a number for multiplying:" << endl;
+	cout << "\nPlease enter a constant to multiply by:" << endl;
 	cin >> mpl;
 	result = c1.multiplyComplex(c1, result, mpl);
 	cout << "Result (multiply): ";	result.printComplex();
-	cout << "\nPlease enter a number for dividing:" << endl;
+	cout << "\nPlease enter a constant to dividing by:" << endl;
 	cin >> div;
 	result = c1.divComplex(c1, result, div);
-	cout << "Result (div): ";	result.printComplex();
+	cout << "Result (div): ";  result.printComplex();
 	system("pause");
 	return 0;
 }
