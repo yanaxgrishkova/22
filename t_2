@@ -8,7 +8,7 @@ private:
 	float real;
 	float imaginary;
 public:
-	Complex() : real(0), imaginary(0)
+	Complex() : real(0.0), imaginary(0.0)
 	{}
 
 	Complex(float rl, float img) : real(rl), imaginary(img)
