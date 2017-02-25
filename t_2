@@ -48,33 +48,25 @@ void Complex::printComplex()
 
 Complex Complex::addComplex(Complex c2) const
 {
-	Complex result;
-	result.real = real + c2.real;
-	result.imaginary = imaginary + c2.imaginary;
+	Complex result(real + c2.real, imaginary + c2.imaginary);
 	return result;
 }
 
 Complex Complex::subComplex(Complex c2) const
 {
-	Complex result;
-	result.real = real - c2.real;
-	result.imaginary = imaginary - c2.imaginary;
+	Complex result(real - c2.real, imaginary - c2.imaginary);
 	return result;
 }
 
 Complex Complex::multiplyComplex(int mpl) const
 {
-	Complex result;
-	result.real = real*mpl;
-	result.imaginary = imaginary*mpl;
+	Complex result(real*mpl, imaginary*mpl);
 	return result;
 }
 
 Complex Complex::divComplex(int div) const
 {
-	Complex result;
-	result.real = real / div;
-	result.imaginary = imaginary / div;
+	Complex result(real / div, imaginary / div);
 	return result;
 }
 
