@@ -17,14 +17,14 @@ public:
 	void getComplex();
 
 	void printComplex();
-	
-	Complex addComplex(Complex c1, Complex c2, Complex result) const;
 
-	Complex subComplex(Complex c1, Complex c2, Complex result) const;
+	Complex addComplex(Complex c2) const;
 
-	Complex multiplyComplex(Complex c1, Complex result, int mpl) const;
+	Complex subComplex(Complex c2) const;
 
-	Complex divComplex(Complex c1, Complex result, int div) const;
+	Complex multiplyComplex(int mpl) const;
+
+	Complex divComplex(int div) const;
 };
 
 void Complex::getComplex()
@@ -41,35 +41,40 @@ void Complex::printComplex()
 	if (imaginary < 0)
 	{
 		cout << real << imaginary << "i" << endl;
-	} else
-	cout << real << "+" << imaginary << "i" << endl;
+	}
+	else
+		cout << real << "+" << imaginary << "i" << endl;
 }
 
-Complex Complex::addComplex(Complex c1, Complex c2, Complex result) const
+Complex Complex::addComplex(Complex c2) const
 {
-	result.real = c1.real + c2.real;
-	result.imaginary = c1.imaginary + c2.imaginary;
+	Complex result;
+	result.real = real + c2.real;
+	result.imaginary = imaginary + c2.imaginary;
 	return result;
 }
 
-Complex Complex::subComplex(Complex c1, Complex c2, Complex result) const
+Complex Complex::subComplex(Complex c2) const
 {
-	result.real = c1.real - c2.real;
-	result.imaginary = c1.imaginary - c2.imaginary;
+	Complex result;
+	result.real = real - c2.real;
+	result.imaginary = imaginary - c2.imaginary;
 	return result;
 }
 
-Complex Complex::multiplyComplex(Complex c1, Complex result, int mpl) const
+Complex Complex::multiplyComplex(int mpl) const
 {
-	result.real = c1.real*mpl;
-	result.imaginary = c1.imaginary*mpl;
+	Complex result;
+	result.real = real*mpl;
+	result.imaginary = imaginary*mpl;
 	return result;
 }
 
-Complex Complex::divComplex(Complex c1, Complex result, int div) const
+Complex Complex::divComplex(int div) const
 {
-	result.real = c1.real / div;
-	result.imaginary = c1.imaginary / div;
+	Complex result;
+	result.real = real / div;
+	result.imaginary = imaginary / div;
 	return result;
 }
 
@@ -79,17 +84,17 @@ int main()
 	int mpl, div;
 	c1.getComplex();
 	c2.getComplex();
-	result = result.addComplex(c1, c2, result);
+	result = c1.addComplex(c2);
 	cout << "Result (add): "; result.printComplex();
-	result = result.subComplex(c1, c2, result);
-	cout << "Result (sub): ";  result.printComplex();
+	result = c1.subComplex(c2);
+	cout << "Result (sub): "; result.printComplex();
 	cout << "\nPlease enter a number (multiply): " << endl;
 	cin >> mpl;
-	result = result.multiplyComplex(c1, result, mpl);
+	result = c1.multiplyComplex(mpl);
 	cout << "Result (multiply): ";	result.printComplex();
 	cout << "\nPlease enter a number (div): " << endl;
 	cin >> div;
-	result = result.divComplex(c1, result, div);
+	result = c1.divComplex(div);
 	cout << "Result (div): ";  result.printComplex();
 	system("pause");
 	return 0;
