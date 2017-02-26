@@ -14,20 +14,20 @@ public:
 	Complex(float rl, float img) : real(rl), imaginary(img)
 	{}
 
-	void getComplex();
+	void get();
 
-	void printComplex();
+	void print();
 
-	Complex addComplex(Complex c2) const;
+	Complex add(Complex c2) const;
 
-	Complex subComplex(Complex c2) const;
+	Complex sub(Complex c2) const;
 
-	Complex multiplyComplex(int mpl) const;
+	Complex multiply(int mpl) const;
 
-	Complex divComplex(int div) const;
+	Complex div(int div) const;
 };
 
-void Complex::getComplex()
+void Complex::get()
 {
 	cout << "Please enter the real part of a complex number:" << endl;
 	cin >> real;
@@ -36,7 +36,7 @@ void Complex::getComplex()
 	cout << endl;
 }
 
-void Complex::printComplex()
+void Complex::print()
 {
 	if (imaginary < 0)
 	{
@@ -46,25 +46,25 @@ void Complex::printComplex()
 		cout << real << "+" << imaginary << "i" << endl;
 }
 
-Complex Complex::addComplex(Complex c2) const
+Complex Complex::add(Complex c2) const
 {
 	Complex result(real + c2.real, imaginary + c2.imaginary);
 	return result;
 }
 
-Complex Complex::subComplex(Complex c2) const
+Complex Complex::sub(Complex c2) const
 {
 	Complex result(real - c2.real, imaginary - c2.imaginary);
 	return result;
 }
 
-Complex Complex::multiplyComplex(int mpl) const
+Complex Complex::multiply(int mpl) const
 {
 	Complex result(real*mpl, imaginary*mpl);
 	return result;
 }
 
-Complex Complex::divComplex(int div) const
+Complex Complex::div(int div) const
 {
 	Complex result(real / div, imaginary / div);
 	return result;
@@ -74,20 +74,20 @@ int main()
 {
 	Complex c1, c2, result;
 	int mpl, div;
-	c1.getComplex();
-	c2.getComplex();
-	result = c1.addComplex(c2);
-	cout << "Result (add): "; result.printComplex();
-	result = c1.subComplex(c2);
-	cout << "Result (sub): "; result.printComplex();
+	c1.get();
+	c2.get();
+	result = c1.add(c2);
+	cout << "Result (add): "; result.print();
+	result = c1.sub(c2);
+	cout << "Result (sub): "; result.print();
 	cout << "\nPlease enter a number (multiply): " << endl;
 	cin >> mpl;
-	result = c1.multiplyComplex(mpl);
-	cout << "Result (multiply): ";	result.printComplex();
+	result = c1.multiply(mpl);
+	cout << "Result (multiply): ";	result.print();
 	cout << "\nPlease enter a number (div): " << endl;
 	cin >> div;
-	result = c1.divComplex(div);
-	cout << "Result (div): ";  result.printComplex();
+	result = c1.div(div);
+	cout << "Result (div): ";  result.print();
 	system("pause");
 	return 0;
 }
